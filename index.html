@@ -1,781 +1,863 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="th">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>คู่มือเบาหวาน</title>
-<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700;800&family=Mitr:wght@400;600;700&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --red: #e63946;
-    --orange: #f4a261;
-    --yellow: #e9c46a;
-    --green: #2a9d8f;
-    --blue: #457b9d;
-    --navy: #1d3557;
-    --cream: #fdf8f0;
-    --white: #ffffff;
-    --shadow: rgba(0,0,0,0.15);
-  }
+<title>ความรู้เบาหวาน</title>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&family=Mali:wght@300;400;600&family=Itim&display=swap" rel="stylesheet">
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
+  
+<style>
 
   body {
-    font-family: 'Sarabun', sans-serif;
-    background: var(--cream);
-    min-height: 100vh;
-    overflow-x: hidden;
+  margin-top:0;
+  font-family:'Prompt', sans-serif;
+  background: linear-gradient(#fff8b0);
+    display:flex;
+  flex-direction:column;
+  min-height:100vh;
   }
+  
+  
+/* หัวเว็บ */
+.header h1 {
+  font-family:'Itim', cursive;
+  font-size:65px;
+  letter-spacing:1px;
+}
 
-  /* === HERO === */
-  .hero {
-    background: linear-gradient(135deg, #1d3557 0%, #457b9d 60%, #2a9d8f 100%);
-    padding: 50px 20px 40px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    pointer-events: none;
-  }
-  .hero-icon { font-size: 64px; line-height:1; animation: pulse 2s ease-in-out infinite; }
-  @keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.08)} }
-  .hero h1 {
-    font-family: 'Mitr', sans-serif;
-    font-size: clamp(28px,6vw,52px);
-    font-weight: 700;
-    color: #fff;
-    margin: 12px 0 8px;
-    letter-spacing: -0.5px;
-  }
-  .hero p {
-    color: rgba(255,255,255,0.82);
-    font-size: clamp(14px,3vw,18px);
-    font-weight: 300;
-    max-width: 500px;
-    margin: 0 auto;
-  }
-  .hero-badge {
-    display: inline-block;
-    background: rgba(255,255,255,0.15);
-    border: 1px solid rgba(255,255,255,0.3);
-    border-radius: 50px;
-    padding: 6px 18px;
-    color: #fff;
-    font-size: 13px;
-    margin-bottom: 16px;
-    backdrop-filter: blur(4px);
-  }
+.header p {
+  font-size:26px;
+  opacity:0.9;
+}
 
-  /* === GRID === */
-  .grid-section { padding: 36px 16px 60px; max-width: 860px; margin: 0 auto; }
-  .section-label {
-    text-align: center;
-    font-family: 'Mitr', sans-serif;
-    font-size: 13px;
-    letter-spacing: 2px;
-    color: #888;
-    text-transform: uppercase;
-    margin-bottom: 24px;
-  }
-
-  .cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 16px;
-  }
-
+/* การ์ดเมนู */
+.card {
+  background:#ffffff;
+  border-radius:25px;
+  padding:25px;
+  text-align:center;
+  font-size:20px;
+  cursor:pointer;
+  font-weight:600;
+  text-shadow:0 1px 2px rgba(0,0,0,0.1);
+  box-shadow:0 8px 20px rgba(0,0,0,0.1);
+  transition:0.3s;
+}
   .card {
-    background: #fff;
-    border-radius: 20px;
-    padding: 28px 16px 22px;
-    text-align: center;
-    cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 4px 16px var(--shadow);
-    border: 2px solid transparent;
-    position: relative;
-    overflow: hidden;
-  }
-  .card::before {
-    content:'';
-    position:absolute; top:0; left:0; right:0; height:4px;
-    background: var(--card-accent, var(--navy));
-    border-radius: 20px 20px 0 0;
-  }
-  .card:hover { transform: translateY(-6px); box-shadow: 0 12px 32px rgba(0,0,0,0.18); }
-  .card:active { transform: translateY(-2px); }
+  border:4px dashed #1b5e20; /* 💚 ขอบเขียวเข้ม */
 
-  .card-emoji { font-size: 40px; display:block; margin-bottom:12px; }
-  .card-title {
-    font-family: 'Mitr', sans-serif;
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--navy);
-    line-height: 1.4;
-  }
-  .card-sub { font-size: 12px; color: #999; margin-top: 4px; }
-  .card-arrow {
-    display: inline-block;
-    margin-top: 10px;
-    width: 28px; height: 28px;
-    background: var(--card-accent, var(--navy));
-    border-radius: 50%;
-    color: #fff;
-    font-size: 14px;
-    line-height: 28px;
-    transition: transform 0.2s;
-  }
-  .card:hover .card-arrow { transform: translateX(3px); }
+  /* ☁️ ก้อนเมฆ */
+  border-radius: 40% 60% 50% 60% / 60% 40% 60% 50%;
 
-  /* card accents */
-  .card:nth-child(1) { --card-accent: #e63946; }
-  .card:nth-child(2) { --card-accent: #2a9d8f; }
-  .card:nth-child(3) { --card-accent: #f4a261; }
-  .card:nth-child(4) { --card-accent: #457b9d; }
-  .card:nth-child(5) { --card-accent: #e9c46a; }
-  .card:nth-child(6) { --card-accent: #6a0572; }
-  .card:nth-child(7) { --card-accent: #2d6a4f; }
-  .card:nth-child(8) { --card-accent: #c77dff; }
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
 
-  /* === MODAL === */
-  .overlay {
-    display: none;
-    position: fixed; inset: 0;
-    background: rgba(10,20,40,0.7);
-    z-index: 1000;
-    align-items: center;
-    justify-content: center;
-    padding: 16px;
-    backdrop-filter: blur(6px);
-    animation: fadeIn 0.2s ease;
+.card:hover {
+  transform: scale(1.05);
+  
   }
-  .overlay.active { display: flex; }
-  @keyframes fadeIn { from{opacity:0} to{opacity:1} }
 
-  .modal {
-    background: #fff;
-    border-radius: 24px;
-    max-width: 640px;
-    width: 100%;
-    max-height: 88vh;
-    overflow-y: auto;
-    animation: slideUp 0.28s ease;
-    position: relative;
-  }
-  @keyframes slideUp { from{transform:translateY(30px);opacity:0} to{transform:translateY(0);opacity:1} }
+/* hover นุ่มๆ */
+.card:hover {
+  transform: translateY(-5px) scale(1.03);
+  background:#e8f5e9;
+}
 
-  .modal-header {
-    padding: 28px 28px 20px;
-    position: sticky; top: 0;
-    background: #fff;
-    border-radius: 24px 24px 0 0;
-    border-bottom: 1px solid #f0f0f0;
-    z-index: 2;
-  }
-  .modal-header-top { display:flex; align-items:center; justify-content:space-between; }
-  .modal-title-group { display:flex; align-items:center; gap:12px; }
-  .modal-emoji { font-size: 36px; }
-  .modal-title {
-    font-family: 'Mitr', sans-serif;
-    font-size: clamp(18px,4vw,24px);
-    font-weight: 700;
-    color: var(--navy);
-  }
-  .modal-close {
-    width: 36px; height: 36px;
-    border-radius: 50%;
-    border: none;
-    background: #f0f0f0;
-    cursor: pointer;
-    font-size: 18px;
-    display: flex; align-items:center; justify-content:center;
-    transition: background 0.15s;
-    flex-shrink: 0;
-  }
-  .modal-close:hover { background: #e0e0e0; }
+/* กล่องเนื้อหา */
+.content-box {
+  background:white;
+  padding:20px;
+  border-radius:20px;
+  margin-bottom:20px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
 
-  .modal-body { padding: 24px 28px 32px; }
+/* ตัวหนังสือ */
+h2 {
+  font-size:30px;
+  color:#2e7d32;
+}
 
-  /* Content blocks */
-  .info-block {
-    background: #f8fafc;
-    border-radius: 14px;
-    padding: 16px 18px;
-    margin-bottom: 14px;
-    border-left: 4px solid var(--accent, #457b9d);
-  }
-  .info-block h3 {
-    font-family: 'Mitr', sans-serif;
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--navy);
-    margin-bottom: 8px;
-    display: flex; align-items:center; gap:6px;
-  }
-  .info-block p, .info-block li {
-    font-size: 14px;
-    color: #444;
-    line-height: 1.75;
-  }
-  .info-block ul { padding-left: 18px; }
-  .info-block li { margin-bottom: 3px; }
+p, li {
+  font-size:20px;
+  line-height:1.7;
+}
 
-  .tag-row { display:flex; flex-wrap:wrap; gap:8px; margin-top: 8px; }
-  .tag {
-    padding: 5px 14px;
-    border-radius: 50px;
-    font-size: 13px;
-    font-weight: 600;
+/* ปุ่มกลับ */
+.back {
+  font-size:40px;
+  color:#2e7d32;
+  cursor:pointer;
+  transition:0.2s;
+}
+
+.back:hover {
+  color:#1b5e20;
   }
-  .tag.good { background:#d1fadf; color:#166534; }
-  .tag.bad { background:#fee2e2; color:#991b1b; }
-  .tag.caution { background:#fef9c3; color:#854d0e; }
+  
+/* ===== HEADER เขียว + ลาย + อนิเมชั่น ===== */
+.header {
+  position: relative;
+  background: linear-gradient(135deg, #1b5e20, #43a047);
+  overflow: hidden;
+  padding: 60px 20px;
+  text-align: center;
+  color: white;
+}
 
-  .highlight-box {
-    background: linear-gradient(135deg, #e0f2fe, #dbeafe);
-    border-radius: 14px;
-    padding: 16px 18px;
-    margin-bottom: 14px;
+/* ลายจุด */
+.header::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+
+  background-image: radial-gradient(rgba(255,255,255,0.15) 2px, transparent 2px);
+  background-size: 40px 40px;
+
+  animation: moveDots 15s linear infinite;
+}
+
+/* วงกลมลอย */
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  animation: float 10s infinite ease-in-out;
+}
+
+/* ตำแหน่งวงกลม */
+.circle1 {
+  width: 80px; height: 80px;
+  top: 20%; left: 10%;
+}
+.circle2 {
+  width: 120px; height: 120px;
+  top: 50%; left: 70%;
+}
+.circle3 {
+  width: 60px; height: 60px;
+  top: 30%; left: 40%;
+}
+
+/* animation */
+@keyframes moveDots {
+  0% { background-position: 0 0; }
+  100% { background-position: 200px 200px; }
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0); }
+  } 
+  
+/* HEADER */
+  
+.header {
+  background: linear-gradient(135deg,#1b5e20,#2e7d32);
+  color:white;
+  text-align:center;
+  padding:50px 20px;
+}
+.header h1 { font-size:70px; }
+.header p { font-size:28px; }
+
+/* GRID */
+.container { padding:30px;flex:1; }
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+
+/* CARD */
+.card {
+  background:#fffdf6;
+  border-radius:20px;
+  padding:25px;
+  text-align:center;
+  font-size:20px;
+  cursor:pointer;
+  box-shadow:0 5px 12px rgba(0,0,0,0.1);
+}
+.card:hover { transform:scale(1.05); }
+
+/* PAGE */
+.page { display:none; padding:25px; }
+.active { display:block; }
+
+.back {
+  font-size:22px;
+  color:#1b5e20;
+  margin-bottom:20px;
+  cursor:pointer;
+}
+
+/* CONTENT */
+.content-box {
+  background:white;
+  padding:20px;
+  border-radius:15px;
+  margin-bottom:20px;
+  box-shadow:0 3px 8px rgba(0,0,0,0.1);
+}
+
+h2 { font-size:32px; color:#1b5e20; }
+p,li { font-size:22px; line-height:1.6; }
+
+/* MEDIA */
+img { width:100%; border-radius:10px; margin-top:10px; }
+iframe { width:100%; height:300px; border-radius:10px; margin-top:10px; }
+a { font-size:20px; color:#2e7d32; display:inline-block; margin-top:10px; }
+  
+/* ให้ header เป็นฐาน */
+.header {
+  position: relative;
+  overflow: hidden;
+}
+
+/* 🌿 ต้นไม้ */
+.tree {
+  position: absolute;
+  bottom: 0;
+  width: 80px;
+  opacity: 0.8;
+}
+
+.tree1 { left: 5%; }
+.tree2 { right: 5%; }
+  
+ /*ปุ่มไปกลับ*/
+  .cute-btn {
+  display: inline-block;
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  color: white;
+  background: linear-gradient(45deg, #ffb74d, #ff8a65);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+  .cute-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: rgba(255,255,255,0.5);
+  transform: skewX(-20deg);
+}
+
+.cute-btn:hover {
+  transform: scale(1.1) rotate(-1deg);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.cute-btn:hover::after {
+  left: 120%;
+  transition: 0.6s;
+}
+
+.cute-btn:active {
+  transform: scale(0.95);
+}
+
+.back-btn {
+  background: #212121;
+}
+
+.next-btn {
+  background: linear-gradient(45deg, #66bb6a, #00c853);
+}
+  /*ปุ่มหน้าหลัก*/
+  .top-bar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 20px;
+}
+  /* ดันปุ่มสุดท้ายไปขวา */
+.home-btn {
+  margin-left: auto;
+  background: #1b5e20;
+  color: white;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 25px;
+  font-size: 18px;
+  cursor: pointer;
+}
+  .faq-box {
+  margin-top: 20px;
+}
+.faq-item {
+  background: #e3f2fd;
+  border-radius: 20px;
+  margin-bottom: 18px;
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+  transition: 0.3s;
+}
+
+.faq-item:hover {
+  transform: translateY(-3px);
+}
+
+.faq-question {
+  padding: 20px;
+  font-size: 22px;
+  font-weight: bold;
+  cursor: pointer;
+  background: linear-gradient(145deg, #bbdefb, #90caf9);
+  box-shadow: inset 0 2px 5px rgba(255,255,255,0.6),
+              inset 0 -3px 8px rgba(0,0,0,0.1);
+  border-radius: 20px;
+  transition: 0.25s;
+}
+
+.faq-question:hover {
+  background: linear-gradient(145deg, #90caf9, #64b5f6);
+}
+
+.faq-answer {
+  padding: 0 18px;
+  font-size: 20px;
+  max-height: 0;
+  overflow: hidden;
+  background: white;
+  transition: all 0.4s ease;
   }
-  .highlight-box p { font-size: 14px; color: #1e3a5f; line-height: 1.75; }
-  .highlight-box strong { color: #1d4ed8; }
+.header {
+  position: relative;
+  z-index: 1;
+}
 
-  .warning-box {
-    background: linear-gradient(135deg, #fef3c7, #fde68a);
-    border-radius: 14px;
-    padding: 16px 18px;
-    margin-bottom: 14px;
+.container {
+  padding:30px;
+  flex:1;
+  position: relative;
+  z-index: 2;
   }
-  .warning-box p { font-size: 14px; color: #78350f; line-height: 1.75; }
+  
+ #home {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 
-  .danger-box {
-    background: linear-gradient(135deg, #fee2e2, #fecaca);
-    border-radius: 14px;
-    padding: 16px 18px;
-    margin-bottom: 14px;
+#home footer {
+  margin-top: auto;
   }
-  .danger-box p { font-size: 14px; color: #7f1d1d; line-height: 1.75; }
-
-  /* scrollbar */
-  .modal::-webkit-scrollbar { width: 6px; }
-  .modal::-webkit-scrollbar-track { background: transparent; }
-  .modal::-webkit-scrollbar-thumb { background: #ddd; border-radius: 10px; }
-
-  /* footer */
   .footer {
-    text-align: center;
-    padding: 20px;
-    color: #aaa;
-    font-size: 13px;
-    border-top: 1px solid #ece8e0;
+  text-align: center;
+  padding: 15px;
+  background: #1b5e20;   /* 💚 สีเขียว */
+  color: white;
+  width: 100%;           /* เต็มจอ */
   }
+  .video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+.video-grid iframe {
+  width: 100%;
+  height: 200px;
+  border-radius: 15px;
+  transition: 0.3s;
+}
+
+/* hover แบบ Netflix */
+.video-grid iframe:hover {
+  transform: scale(1.08);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  }
+  
 </style>
 </head>
+
 <body>
 
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-badge">📖 คู่มือสุขภาพ</div>
-  <div class="hero-icon">🩸</div>
-  <h1>เบาหวาน<br>รู้ทัน ดูแลได้</h1>
-  <p>ความรู้ครบครันสำหรับผู้ป่วยและผู้ดูแล<br>เลือกหัวข้อที่ต้องการเรียนรู้ได้เลย</p>
-  <a href="https://www.youtube.com/playlist?list=PL8j0wrnjKflUK-BYmji8sEIUHTnqTmadz" target="_blank" rel="noopener" style="
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 24px;
-    background: #ff0000;
-    color: #fff;
-    font-family: 'Mitr', sans-serif;
-    font-size: 16px;
-    font-weight: 600;
-    padding: 14px 28px;
-    border-radius: 50px;
-    text-decoration: none;
-    box-shadow: 0 4px 20px rgba(255,0,0,0.4);
-    transition: transform 0.2s, box-shadow 0.2s;
-  " onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 28px rgba(255,0,0,0.5)'"
-     onmouseout="this.style.transform='';this.style.boxShadow='0 4px 20px rgba(255,0,0,0.4)'">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-      <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-    </svg>
-    ▶ ดูวิดีโอประกอบ (YouTube)
-  </a>
-</div>
-
-<!-- CARDS -->
-<div class="grid-section">
-  <p class="section-label">เลือกหัวข้อที่ต้องการ</p>
-  <div class="cards-grid">
-
-    <div class="card" onclick="openModal('diabetes')">
-      <span class="card-emoji">🩸</span>
-      <div class="card-title">เบาหวานคืออะไร?</div>
-      <div class="card-sub">ความรู้พื้นฐาน</div>
-      <div class="card-arrow">→</div>
-    </div>
-
-    <div class="card" onclick="openModal('food')">
-      <span class="card-emoji">🍚</span>
-      <div class="card-title">อาหาร<br>ควรกิน / เลี่ยง</div>
-      <div class="card-sub">โภชนาการ</div>
-      <div class="card-arrow">→</div>
-    </div>
-
-    <div class="card" onclick="openModal('exercise')">
-      <span class="card-emoji">🏃‍♀️</span>
-      <div class="card-title">การออกกำลังกาย</div>
-      <div class="card-sub">เคลื่อนไหวอย่างปลอดภัย</div>
-      <div class="card-arrow">→</div>
-    </div>
-
-    <div class="card" onclick="openModal('medicine')">
-      <span class="card-emoji">💊</span>
-      <div class="card-title">ยาและการใช้ยา</div>
-      <div class="card-sub">ทานยาถูกวิธี</div>
-      <div class="card-arrow">→</div>
-    </div>
-
-    <div class="card" onclick="openModal('complication')">
-      <span class="card-emoji">⚠️</span>
-      <div class="card-title">ภาวะแทรกซ้อน</div>
-      <div class="card-sub">สัญญาณที่ต้องระวัง</div>
-      <div class="card-arrow">→</div>
-    </div>
-
-    <div class="card" onclick="openModal('bloodsugar')">
-      <span class="card-emoji">📊</span>
-      <div class="card-title">วิธีคุมระดับน้ำตาล</div>
-      <div class="card-sub">ติดตามและควบคุม</div>
-      <div class="card-arrow">→</div>
-    </div>
-
-    <div class="card" onclick="openModal('foot')">
-      <span class="card-emoji">👣</span>
-      <div class="card-title">การดูแลเท้า</div>
-      <div class="card-sub">ป้องกันแผลเรื้อรัง</div>
-      <div class="card-arrow">→</div>
-    </div>
-
-    <div class="card" onclick="openModal('qa')">
-      <span class="card-emoji">🧠</span>
-      <div class="card-title">Q&A คำถามที่พบบ่อย</div>
-      <div class="card-sub">ข้อสงสัยทั่วไป</div>
-      <div class="card-arrow">→</div>
-    </div>
-
+<!-- HOME -->
+<div id="home">
+  <div class="header">
+    <h1> " คู่มือผู้ป่วยเบาหวาน "</h1>
+    <p>ดูแลง่าย เข้าใจได้ ใส่ใจสุขภาพ</p>
+ 
+     
+ <!-- 🌿 ต้นไม้ -->
+  <img class="tree tree1" src="https://cdn-icons-png.flaticon.com/512/427/427735.png">
+  <img class="tree tree2" src="https://cdn-icons-png.flaticon.com/512/427/427735.png">
   </div>
+
+  <div class="container">
+    <div class="grid">
+      <div class="card" onclick="openPage('p0')">🎬 ความรอบรู้สุขภาพ</div>
+      <div class="card" onclick="openPage('p1')">🩸 เบาหวานคืออะไร</div>
+      <div class="card" onclick="openPage('p2')">⚠️ ภาวะแทรกซ้อน</div>
+      <div class="card" onclick="openPage('p3')">🥗 อาหารที่เหมาะสม</div>
+      <div class="card" onclick="openPage('p4')">🏃 ออกกำลังกาย</div>
+      <div class="card" onclick="openPage('p5')">💊 การใช้ยา</div>
+      <div class="card" onclick="openPage('p6')">🚨 การรับมือเร่งด่วน</div>
+      <div class="card" onclick="openPage('p7')">❓ คำถามพบบ่อย</div>
+    </div>
+  </div>
+  
+ <footer class="footer">
+  Developed by Miss J. Gritphanaphat @2026
+  </footer>
+  
+  </div>
+
+
+<!-- ===== PAGES ===== -->
+  
+<!-- 0 -->
+<div id="p0" class="page">
+  <div class="cute-btn back-btn" onclick="goHome()">⬅ กลับ</div>
+
+  <h2> มีสุขภาพที่ดีไปด้วยกัน💪🏻</h2>
+
+  <!-- 🎬 Netflix style -->
+  <div class="video-grid">
+
+    <iframe class="yt-video"         src="https://www.youtube.com/embed/l9Jl61kbEug?si=6Cur5Jq2Sbw4gkrs" allowfullscreen></iframe>
+  
+    <iframe class="yt-video"           src="https://www.youtube.com/embed/shkhxrFAPyQ?si=jRXnMs7D7mZRQA0v" allowfullscreen></iframe>
+    
+    <iframe class="yt-video"
+src="https://www.youtube.com/embed/4ws-LsxVrGM?si=ehG5T92IzoDohf48" allowfullscreen></iframe>
+    
+    <iframe class="yt-video"
+src="https://www.youtube.com/embed/zHcLoJsZWqc?si=o3ur9RJoYmAp8zyy" allowfullscreen></iframe>
+    
+    <iframe class="yt-video"       src="https://www.youtube.com/embed/8qAhAyyvbL8?si=d_QLzI3-y6fs9cQz" allowfullscreen></iframe>
+    
+    <iframe class="yt-video"       src="https://www.youtube.com/embed/6kXx9G19mzM?si=shurxtOUcLiYDtaD" allowfullscreen></iframe>
+    
+    <iframe class="yt-video"         src="https://www.youtube.com/embed/2_ft4QQ1Qv8?si=EPq8fFTzXHVCDIB2" allowfullscreen></iframe>
+  </div>
+  </div>
+
+<!-- 1 -->
+<div id="p1" class="page">
+ <div class="cute-btn back-btn" onclick="goHome()">⬅ กลับ</div>
+  <div class="cute-btn next-btn" onclick="openPage('p2')">➡ไปต่อ</div>
+<h2>เบาหวานคืออะไร ?</h2>
+<div 
+    
+          class="content-box">
+<iframe src="https://www.youtube.com/embed/lcN3aSoDF2M?si=NB9ZIwe7pvDn1jOy"
+  style="width:100%; height:500px; border-radius:15px;"
+  frameborder="0"
+  allowfullscreen>
+</iframe>
+</div>
+  
+  <p>โรคเบาหวาน (Diabetes Mellitus) คือ โรคที่เซลล์ร่างกายมีความผิดปกติในขบวน การเปลี่ยนน้ำตาลในเลือดให้เป็นพลังงาน โดยขบวนการนี้เกี่ยวข้องกับอินซูลินซึ่งเป็นฮอร์โมนที่สร้างจากตับอ่อนเพื่อใช้ควบคุมระดับน้ำตาลในเลือด เมื่อน้ำตาลไม่ได้ถูกใช้จึงทำให้ระดับน้ำตาลในเลือดสูงขึ้นกว่าระดับปกติ</p>
+  
+
+  <b> ประเภทของโรคเบาหวานโดยทั่วไปแบ่งออกเป็นประเภทหลักๆ ดังนี้:</b>
+ <ul>
+<div
+          class="content-box">  
+  <li>ประเภทที่ 1 (Type 1): 
+    <p>ร่างกายสร้างอินซูลินไม่ได้เลย มักพบในเด็กหรือคนอายุน้อย ต้องรักษาด้วยการฉีดอินซูลิน</p>
+    </li>
+ </div>
+  
+  <div
+          class="content-box">
+  <li>ประเภทที่ 2 (Type 2): 
+    <p>ร่างกายดื้อต่ออินซูลิน หรือผลิตไม่เพียงพอ มักพบในผู้ใหญ่ที่มีน้ำหนักเกิน หรือมีพฤติกรรมการกินที่ไม่เหมาะสม
+    </p>
+    </li>
+  </div>
+  
+  <div
+          class="content-box">
+  <li>เบาหวานขณะตั้งครรภ์: 
+    <p>เกิดจากการเปลี่ยนแปลงของฮอร์โมนระหว่างตั้งครรภ์ ซึ่งมักจะหายไปหลังคลอด
+    </p>
+    </li>
+  </div>
+  
+  <div
+          class="content-box">
+  <li>โรคเบาหวานที่มีสาเหตุจำเพาะ (specific types of diabetes due to other causes)
+    <p>มีได้หลายสาเหตุ เช่น โรคทางพันธุกรรม โรคของตับอ่อน โรคทางต่อมไร้ท่อ ยาบางชนิด เป็นต้น</p>    
+    </li> 
+   </div>
+  
+  </ul>
+  
+  </div>
+
+
+
+<!-- 2 -->
+<div id="p2" class="page">
+ <div class="cute-btn back-btn" onclick="openPage('p1')">⬅ กลับ</div>
+ <div class="cute-btn next-btn" onclick="openPage('p3')">➡ไปต่อ</div>
+ <div class="cute-btn home-btn" onclick="goHome()"> กลับหน้าหลัก</div>
+<h2>ภาวะแทรกซ้อน!</h2>
+  
+ <div 
+    class="content-box">
+<iframe  src="https://www.youtube.com/embed/7mw04nvCScg?si=oCej-sEr94y4_r2E"
+  style="width:100%; height:500px; border-radius:15px;"
+  frameborder="0"
+  allowfullscreen>
+</iframe>
+</div>
+  
+<div class="content-box">
+  <p>👁️ เบาหวานขึ้นตา (ตา)</p>
+  <ul>
+    <li>คำอธิบาย🔎: น้ำตาลสูงทำให้หลอดเลือดในตาเปราะและแตกง่าย </li>
+    <li>อาการ⚠️: ตามัว เห็นจุดดำลอยไปมา หรือมองเห็นภาพบิดเบี้ยว </li>
+    <li>คำแนะนำ✅️: "ตรวจตาปีละ 1 ครั้ง" แม้จะยังมองเห็นปกติ เพราะถ้าเริ่มมีอาการแปลว่าระยะลุกลามแล้ว </li>
+  </ul>
+  </div>
+   
+  <div class="content-box">
+    <p>🦶🏻 เบาหวานเข้าเส้นประสาท (เท้า)</p>
+  <ul>
+    <li>คำอธิบาย🔎: เส้นประสาทส่วนปลายเสื่อม ทำให้ "ชา" และไม่รู้สึกเจ็บ </li>
+    <li>อาการ⚠️: พอไม่เจ็บ เวลาเดินเหยียบอะไรเป็นแผลก็ไม่รู้ตัว จนแผลเน่าและติดเชื้อรุนแรง </li>
+    <li>คำแนะนำ✅️: "ตรวจเท้าด้วยตัวเองทุกเย็น" และห้ามเดินเท้าเปล่าเด็ดขาด </li>
+  </ul>
+  </div>
+  
+  <div class="content-box">
+  <p>🫘 เบาหวานลงไต (ไต)</p>
+  <ul>
+    <li>คำอธิบาย🔎: ไตต้องทำงานหนักเพื่อกรองน้ำตาล จนตัวกรองเสื่อมและมีโปรตีนรั่ว </li>
+    <li>อาการ⚠️: ปัสสาวะเป็นฟองมาปัสสาวะเป็นฟองมาก ขาบวม หน้าบวม หรือเพลียผิดปกติ </li>
+    <li>คำแนะนำ✅️: คุมการกินเค็มและตรวจค่าไต (Creatinine/eGFR) สม่ำเสมอ </li>
+  </ul>
+  </div>
+  
+  <div class="content-box">
+  <p>🫀 หลอดเลือดหัวใจและสมอง (หัวใจ/สมอง)</p>
+  <ul>
+    <li>คำอธิบาย🔎: น้ำตาลทำให้หลอดเลือดอักเสบและตีบตันง่ายกว่าคนปกติ 2-4 เท่า </li>
+    <li>อาการ⚠️: แน่นหน้าอก ปากเบี้ยว แขนขาอ่อนแรงครึ่งซีก </li>
+    <li>คำแนะนำ✅️: ต้องคุมทั้ง "น้ำตาล + ความดัน + ไขมัน" ให้ดีพร้อมกันทั้ง 3 อย่าง </li>
+  </ul>
+  </div>  
 </div>
 
-<div class="footer">ข้อมูลนี้เพื่อการศึกษาเท่านั้น • กรุณาปรึกษาแพทย์หรือเภสัชกรสำหรับการรักษา</div>
+<!-- 3 -->
+<div id="p3" class="page">
+ <div class="cute-btn back-btn" onclick="openPage('p2')">⬅ กลับ</div>
+ <div class="cute-btn next-btn" onclick="openPage('p4')">➡ไปต่อ</div>
+ <div class="cute-btn home-btn" onclick="goHome()"> กลับหน้าหลัก</div>
+<h2>อาหารที่ควรกิน✅️ และควรเลี่ยง❌️</h2>
+<div
+  class="content-box">
+<iframe  src="https://www.youtube.com/embed/Lq2m1OfOSqc?si=dQ2VeJSqzHJnDd3L"
+  style="width:100%; height:500px; border-radius:15px;"
+  frameborder="0"
+  allowfullscreen>
+</iframe>
+ </div>
+<div class="content-box">
+<b>1. แนะนำหลักโภชนาการ (ลดหวาน มัน เค็ม)</b>
+  <ul>
+<li> ลดหวาน❌️: หลีกเลี่ยงน้ำตาล เครื่องดื่มหวาน ขนมหวาน </li>
+<li>ลดมัน❌️: เลี่ยงของทอด กะทิ เนื้อสัตว์ติดมัน</li>
+<li>ลดเค็ม❌️: ลดอาหารเค็มจัด เช่น ของหมักดอง บะหมี่กึ่งสำเร็จรูป</li>
+<p>👉🏻 เน้นกินอาหารให้ครบ 5 หมู่ ในปริมาณพอเหมาะ</p>
+<p>👉🏻 เพิ่มผักให้มากขึ้น และเลือกโปรตีนไขมันต่ำ เช่น ปลา อกไก่ เต้าหู้ </p> 
+  </div>
+  
+<div class="content-box"> 
+<b>2.การเลือกอาหาร (การนับคาร์โบไฮเดรต)</b>
+  <p>
+อาหารที่มีผลต่อน้ำตาลมาก คือ กลุ่มคาร์โบไฮเดรต เช่น ข้าว แป้ง น้ำตาล ผลไม้ ควรควบคุมปริมาณ ไม่กินมากเกินไปในแต่ละมื้อ
+   </p> 
+<p>วิธีจำง่าย💡</p>
+  <ul>
+<li> ข้าว/แป้ง 1 มื้อ ≈ 1–2 ทัพพี (ตามคำแนะนำแพทย์)</li>
+<li> เลือกคาร์บดี เช่น ข้าวกล้อง ธัญพืชไม่ขัดสี</li>
+<li> หลีกเลี่ยงน้ำหวาน น้ำอัดลม ขนมเค้ก เบเกอรี่</li>
+    </ul>
+<p>👉🏻 หลักง่าย: “กินแป้งพอดี ไม่เติมหวานเพิ่ม”✅️✅️✅️</p>
+  </div>
 
-<!-- OVERLAY -->
-<div class="overlay" id="overlay" onclick="closeOnBg(event)">
-  <div class="modal" id="modal">
-    <div class="modal-header">
-      <div class="modal-header-top">
-        <div class="modal-title-group">
-          <span class="modal-emoji" id="modal-emoji"></span>
-          <div class="modal-title" id="modal-title"></div>
-        </div>
-        <button class="modal-close" onclick="closeModal()">✕</button>
+<div class="content-box">  
+<b>3. กินอาหารให้เป็นเวลา และหลีกเลี่ยงการกินจุบจิบ</b>
+ <ul>
+<li> กินอาหาร ตรงเวลา 3 มื้อ/วัน (อาจมีอาหารว่างตามแผน)</li>
+<li> ไม่งดมื้ออาหาร เพราะอาจทำให้น้ำตาลแกว่ง</li>
+<li> หลีกเลี่ยงการกินจุบจิบ โดยเฉพาะของหวาน</li>
+  </ul>
+<p>👉🏻 ถ้าหิวระหว่างมื้อ ให้เลือกผลไม้หวานน้อย (เช่น ฝรั่ง ชมพู่) ถั่วไม่เค็ม</p>
+   </div>
+</div>
+
+<!-- 4 -->
+<div id="p4" class="page">
+ <div class="cute-btn back-btn" onclick="openPage('p3')">⬅ กลับ</div>
+ <div class="cute-btn next-btn" onclick="openPage('p5')">➡ไปต่อ</div>
+ <div class="cute-btn home-btn" onclick="goHome()"> กลับหน้าหลัก</div>
+<h2>ออกกำลังกาย</h2>
+<div 
+    class="content-box">
+<iframe  src="https://www.youtube.com/embed/uaWRXFSuNQ0?si=SP2pvLAZ8MymwDle"
+  style="width:100%; height:500px; border-radius:15px;"
+  frameborder="0"
+  allowfullscreen>
+</iframe>
+</div>
+  
+<div class="content-box">
+
+  <p>
+    การออกกำลังกายช่วยลดระดับน้ำตาลในเลือดและน้ำตาลสะสม (HbA1c) ได้อย่างมีประสิทธิภาพ 
+    โดยช่วยเพิ่มความไวของอินซูลิน ทำให้ร่างกายนำน้ำตาลไปใช้ได้ดีขึ้น 
+    อีกทั้งยังช่วยควบคุมน้ำหนัก ลดไขมัน ลดความดันโลหิต 
+    และลดความเสี่ยงต่อภาวะแทรกซ้อนต่าง ๆ
+  </p>
+
+  <div class="section-title"><b>✅ ข้อดีของการออกกำลังกาย</b></div>
+  <ul>
+    <li>ควบคุมระดับน้ำตาลในเลือด ลด HbA1c</li>
+    <li>เพิ่มความไวของอินซูลิน ลดภาวะดื้ออินซูลิน</li>
+    <li>ช่วยควบคุมน้ำหนัก ลดไขมันและความดัน</li>
+    <li>ลดความเสี่ยงโรคหัวใจ สมอง และภาวะแทรกซ้อน</li>
+    <li>ทำให้ร่างกายแข็งแรง อารมณ์ดี ลดความเครียด</li>
+    <li>อาจช่วยลดการใช้ยาได้</li>
+  </ul>
+
+  <div class="section-title"><b>⚠️ ข้อควรระวัง</b></div>
+  <ul>
+    <li>ควรตรวจน้ำตาลก่อนและหลังออกกำลังกาย</li>
+    <li>หลีกเลี่ยงการออกกำลังกายหนักเกินไป</li>
+    <li>สวมรองเท้าที่เหมาะสม ป้องกันแผลที่เท้า</li>
+    <li>หากมีโรคแทรกซ้อน ควรปรึกษาแพทย์ก่อน</li>
+  </ul>
+</div>
+  </div>
+  
+    <!-- 5 -->
+<div id="p5" class="page">
+<div class="cute-btn back-btn" onclick="openPage('p4')">⬅ กลับ</div>
+<div class="cute-btn next-btn" onclick="openPage('p6')">➡ไปต่อ</div>
+<div class="cute-btn home-btn" onclick="goHome()"> กลับหน้าหลัก</div>
+<h2>ทำไมต้องกินยา💊</h2>
+<div
+  class="content-box">
+<iframe  src="https://www.youtube.com/embed/TwShAu3EIJc?si=fPCVEIKsuSEh8ogg"
+  style="width:100%; height:500px; border-radius:15px;"
+  frameborder="0"
+  allowfullscreen>
+</iframe>
+  <p> ผู้ป่วยเบาหวานจำเป็นต้องกินยา (หรือฉีดอินซูลิน) เพื่อควบคุมระดับน้ำตาลในเลือดให้ใกล้เคียงค่าปกติที่สุดอย่างต่อเนื่อง การกินยาช่วยป้องกันภาวะน้ำตาลสูงเกินไปที่ทำลายหลอดเลือดและอวัยวะต่างๆ ลดความเสี่ยงภาวะแทรกซ้อนร้ายแรง เช่น ไตวาย เบาหวานขึ้นตา โรคหัวใจ และอัมพฤกษ์อัมพาต</p>
+   <p>คำแนะนำ: ผู้ป่วยห้ามหยุดยาหรือปรับยาเองเด็ดขาด เพราะอาจทำให้โรคแทรกซ้อนรุนแรงขึ้น แม้รู้สึกว่าอาการปกติแล้วก็ตาม</p>
+ </div>
+  </div>
+  
+  <!-- 6 -->
+<div id="p6" class="page">
+<div class="cute-btn back-btn" onclick="openPage('p5')">⬅ กลับ</div>
+<div class="cute-btn next-btn" onclick="openPage('p7')">➡ไปต่อ</div>
+<div class="cute-btn home-btn" onclick="goHome()"> กลับหน้าหลัก</div>
+<h2>🚨วิธีรับมือภาวะฉุกเฉิน</h2>
+<div
+  class="content-box">
+<iframe  src="https://www.youtube.com/embed/QEhHB_7PV8k?si=r53D-5xeOSD6jBho"
+  style="width:100%; height:500px; border-radius:15px;"
+  frameborder="0"
+  allowfullscreen>
+</iframe>
+ </div> 
+  
+  <div class="content-box">
+<b>🔻ภาวะน้ำตาลในเลือดต่ำ (Hypoglycemia)</b>
+  <ul>
+<li> สัญญาณ⚠️: ใจสั่น เหงื่อออกซึม หิวโซ เวียนศีรษะ มือสั่น สับสน ปากชา </li>
+<li>การจัดการ (ผู้ป่วยยังมีสติ)✅️:กฎ 15/15: กินน้ำตาลเร็ว 15 กรัม (น้ำหวาน 1 แก้ว/น้ำผลไม้/ลูกอม 3-4 เม็ด) จากนั้นรอ 15 นาที แล้วเช็คระดับน้ำตาล ถ้ายังต่ำกว่า 
+70 mg/dL ให้น้ำตาลซ้ำ</li>
+<li>การจัดการ (ผู้ป่วยหมดสติ/ไม่ตอบสนอง)✅️:
+โทร 1669 ทันที☎️ห้ามป้อนน้ำหรืออาหารเด็ดขาดจับนอนตะแคง ท่าพักฟื้น เพื่อป้องกันการสำลัก</li>
+    </ul>
+</div>
+  
+  <div class="content-box">
+<b>🔺️ภาวะน้ำตาลในเลือดสูง (Hyperglycemia)</b>
+  <ul>
+<li> สัญญาณ⚠️:หิวน้ำมาก ปัสสาวะบ่อย ปากแห้ง อ่อนเพลีย หายใจหอบลึก หายใจมีกลิ่นผลไม้ (Ketone) </li>
+<li>การจัดการ ✅️: ตรวจวัดระดับน้ำตาลและคีโตน (ถ้าทำได้)
+ดื่มน้ำเปล่าให้มาก ๆ เพื่อลดความเข้มข้นของน้ำตาล ฉีดอินซูลินตามแผนการรักษาของแพทย์ (ถ้ามี)
+หากมีอาการหอบซึม หมดสติ ให้รีบนำส่งห้องฉุกเฉิน🚑</li>
+    </ul>
+</div>
+  
+  <div class="content-box">
+<p>🚨การเตรียมความพร้อมป้องกันเหตุฉุกเฉิน</p>
+  <ul> 
+<li> พกน้ำตาลติดตัว: ลูกอม หรือน้ำผลไม้กล่องเล็ก </li>
+<li>บัตรประจำตัว/สายรัดข้อมือ: แจ้งว่าเป็นผู้ป่วยเบาหวาน</li>
+<li>ตรวจน้ำตาลสม่ำเสมอ: โดยเฉพาะก่อนออกกำลังกาย</li>
+<li>จัดเก็บยา: มีอินซูลินและยารับประทานสำรองเสมอ </li>
+    </ul>
+</div>
+  </div>
+  
+  <!--7-->
+  <div id="p7" class="page">                                                  
+ <div class="cute-btn back-btn" onclick="openPage('p6')">⬅ กลับ</div>
+<div class="cute-btn home-btn" onclick="goHome()"> กลับหน้าหลัก</div>
+
+
+  <h2> คำถามคำถามพบบ่อย</h2>
+
+  <div class="faq-box">
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFAQ(this)">
+        ❓ เบาหวานรักษาหายขาดไหม?
+         <span style="font-size:16px; color:#555;">
+    (คลิกเพื่อดูคำตอบ)
+      </div>
+      <div class="faq-answer">
+        เบาหวานเป็นโรคเรื้อรัง ไม่หายขาด แต่สามารถ “สงบ (Remission)” ได้ คือระดับน้ำตาลปกติโดยไม่ต้องใช้ยา หากปรับพฤติกรรมอย่างเข้มงวด
       </div>
     </div>
-    <div class="modal-body" id="modal-body"></div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFAQ(this)">
+        ❓ ค่าน้ำตาลปกติเท่าไหร่?
+         <span style="font-size:16px; color:#555;">
+    (คลิกเพื่อดูคำตอบ)
+      </div>
+      <div class="faq-answer">
+        คนปกติควรอยู่ระหว่าง 70–100 mg/dL และ HbA1c ควรต่ำกว่า 6.5%
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFAQ(this)">
+        ❓ เป็นเบาหวานกินผลไม้ได้ไหม?
+         <span style="font-size:16px; color:#555;">
+    (คลิกเพื่อดูคำตอบ)
+      </div>
+      <div class="faq-answer">
+        กินได้ แต่ต้องเลือกผลไม้หวานน้อย เช่น ฝรั่ง แอปเปิ้ล ชมพู่ และกินในปริมาณพอดี หลีกเลี่ยงผลไม้หวานจัดหรือแปรรูป
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFAQ(this)">
+        ❓ น้ำตาลในเลือดต่ำทำยังไง?
+         <span style="font-size:16px; color:#555;">
+    (คลิกเพื่อดูคำตอบ)
+      </div>
+      <div class="faq-answer">
+        หากต่ำกว่า 70 mg/dL หรือมีอาการ ให้กินน้ำหวาน 1 แก้ว น้ำผลไม้ หรือลูกอม 3–4 เม็ด แล้วพัก
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFAQ(this)">
+        ❓ อาการเบาหวานขึ้นตามีอะไรบ้าง?
+         <span style="font-size:16px; color:#555;">
+    (คลิกเพื่อดูคำตอบ)
+      </div>
+      <div class="faq-answer">
+        สายตาพร่ามัว มองไม่ชัด หรือเห็นภาพซ้อน
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFAQ(this)">
+        ❓ ผู้ป่วยเบาหวานต้องออกกำลังกายไหม?
+         <span style="font-size:16px; color:#555;">
+    (คลิกเพื่อดูคำตอบ)
+      </div>
+      <div class="faq-answer">
+        จำเป็น ช่วยให้ร่างกายใช้น้ำตาลดีขึ้น ควบคุมน้ำหนัก แนะนำเดินเร็วหรือว่ายน้ำสม่ำเสมอ
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFAQ(this)">
+        ❓ ทำไมต้องคุมเบาหวาน?
+         <span style="font-size:16px; color:#555;">
+    (คลิกเพื่อดูคำตอบ)
+      </div>
+      <div class="faq-answer">
+        เพื่อป้องกันภาวะแทรกซ้อน เช่น ไตเสื่อม แผลเรื้อรัง โรคหัวใจ และหลอดเลือดสมอง
+      </div>
+    </div>
+
   </div>
-</div>
+
+  <p style="margin-top:20px; font-size:20px;">
+    💡 คำแนะนำ: ควรตรวจน้ำตาลสม่ำเสมอ และพบแพทย์อย่างน้อยปีละ 1 ครั้ง
+  </p>
+  </div>
+  
 
 <script>
-const content = {
 
-  diabetes: {
-    emoji: '🩸',
-    title: 'เบาหวานคืออะไร?',
-    body: `
-      <div class="highlight-box">
-        <p><strong>เบาหวาน (Diabetes Mellitus)</strong> คือภาวะที่ร่างกายมีระดับน้ำตาลในเลือดสูงผิดปกติ เนื่องจากตับอ่อนผลิตอินซูลินไม่เพียงพอ หรือร่างกายใช้อินซูลินได้ไม่มีประสิทธิภาพ</p>
-      </div>
-      <div class="info-block" style="--accent:#e63946">
-        <h3>🔴 ชนิดของเบาหวาน</h3>
-        <ul>
-          <li><strong>ชนิดที่ 1:</strong> ตับอ่อนไม่สร้างอินซูลิน มักพบในเด็กและวัยรุ่น ต้องฉีดอินซูลิน</li>
-          <li><strong>ชนิดที่ 2:</strong> พบบ่อยที่สุด (~90%) ร่างกายดื้ออินซูลิน มักสัมพันธ์กับน้ำหนักตัว</li>
-          <li><strong>เบาหวานขณะตั้งครรภ์:</strong> เกิดระหว่างตั้งครรภ์ มักหายหลังคลอด</li>
-        </ul>
-      </div>
-      <div class="info-block" style="--accent:#f4a261">
-        <h3>🟠 อาการที่พบบ่อย</h3>
-        <ul>
-          <li>ปัสสาวะบ่อย โดยเฉพาะกลางคืน</li>
-          <li>กระหายน้ำมาก</li>
-          <li>หิวบ่อย น้ำหนักลดโดยไม่ตั้งใจ</li>
-          <li>ตาพร่ามัว แผลหายช้า</li>
-          <li>อ่อนเพลีย เหนื่อยง่าย</li>
-          <li>ชาหรือเจ็บปวดที่มือและเท้า</li>
-        </ul>
-      </div>
-      <div class="info-block" style="--accent:#2a9d8f">
-        <h3>🟢 ค่าน้ำตาลที่บ่งชี้</h3>
-        <ul>
-          <li><strong>ปกติ:</strong> น้ำตาลอดอาหาร &lt; 100 mg/dL</li>
-          <li><strong>เสี่ยงเบาหวาน (Pre-diabetes):</strong> 100–125 mg/dL</li>
-          <li><strong>เบาหวาน:</strong> ≥ 126 mg/dL (อดอาหาร) หรือ ≥ 200 mg/dL (ไม่อดอาหาร)</li>
-        </ul>
-      </div>
-      <div class="warning-box">
-        <p>⚠️ <strong>หมายเหตุ:</strong> เบาหวานชนิดที่ 2 ในระยะแรกมักไม่มีอาการ แนะนำให้ตรวจคัดกรองสม่ำเสมอ โดยเฉพาะผู้ที่มีปัจจัยเสี่ยง</p>
-      </div>
-    `
-  },
-
-  food: {
-    emoji: '🍚',
-    title: 'อาหารสำหรับผู้ป่วยเบาหวาน',
-    body: `
-      <div class="highlight-box">
-        <p>การควบคุมอาหารเป็นรากฐานสำคัญของการรักษาเบาหวาน เน้น <strong>คุณภาพ ปริมาณ และเวลา</strong> ในการรับประทาน</p>
-      </div>
-      <div class="info-block" style="--accent:#2a9d8f">
-        <h3>✅ อาหารที่แนะนำ</h3>
-        <div class="tag-row">
-          <span class="tag good">ข้าวกล้อง</span>
-          <span class="tag good">ผักใบเขียว</span>
-          <span class="tag good">ปลา</span>
-          <span class="tag good">อกไก่</span>
-          <span class="tag good">ถั่วต่างๆ</span>
-          <span class="tag good">ไข่ขาว</span>
-          <span class="tag good">เต้าหู้</span>
-          <span class="tag good">มะเขือเทศ</span>
-          <span class="tag good">แตงกวา</span>
-          <span class="tag good">บร็อคโคลี่</span>
-          <span class="tag good">ผลไม้รสไม่หวาน</span>
-          <span class="tag good">น้ำเปล่า</span>
-        </div>
-      </div>
-      <div class="info-block" style="--accent:#e63946">
-        <h3>❌ อาหารที่ควรเลี่ยง</h3>
-        <div class="tag-row">
-          <span class="tag bad">น้ำหวาน/น้ำอัดลม</span>
-          <span class="tag bad">ขนมหวาน</span>
-          <span class="tag bad">ข้าวขาวมากเกิน</span>
-          <span class="tag bad">ขนมปังขาว</span>
-          <span class="tag bad">อาหารทอด</span>
-          <span class="tag bad">ไขมันสัตว์</span>
-          <span class="tag bad">แอลกอฮอล์</span>
-          <span class="tag bad">ผลไม้หวานจัด</span>
-          <span class="tag bad">อาหารแปรรูป</span>
-        </div>
-      </div>
-      <div class="info-block" style="--accent:#f4a261">
-        <h3>🟡 ทานได้แต่ระวังปริมาณ</h3>
-        <div class="tag-row">
-          <span class="tag caution">กล้วย</span>
-          <span class="tag caution">มะม่วงสุก</span>
-          <span class="tag caution">ข้าวขาว</span>
-          <span class="tag caution">มันฝรั่ง</span>
-          <span class="tag caution">เผือก</span>
-          <span class="tag caution">นมจืด</span>
-          <span class="tag caution">ถั่วลิสง</span>
-        </div>
-      </div>
-      <div class="info-block" style="--accent:#457b9d">
-        <h3>💡 เคล็ดลับการกิน</h3>
-        <ul>
-          <li>แบ่งอาหารเป็น 3 มื้อหลัก + อาหารว่าง 1–2 มื้อ ไม่ควรข้ามมื้อ</li>
-          <li>ใช้จานขนาดกลาง แบ่งครึ่งให้เป็นผัก 1/4 โปรตีน 1/4 แป้ง</li>
-          <li>กินช้าๆ เคี้ยวให้ละเอียด</li>
-          <li>หลีกเลี่ยงอาหารที่มี GI สูง (ดัชนีน้ำตาลสูง)</li>
-        </ul>
-      </div>
-    `
-  },
-
-  exercise: {
-    emoji: '🏃‍♀️',
-    title: 'การออกกำลังกาย',
-    body: `
-      <div class="highlight-box">
-        <p>การออกกำลังกายช่วย<strong>ลดระดับน้ำตาลในเลือด เพิ่มความไวต่ออินซูลิน</strong> และลดความเสี่ยงโรคหัวใจ แนะนำอย่างน้อย <strong>150 นาที/สัปดาห์</strong></p>
-      </div>
-      <div class="info-block" style="--accent:#2a9d8f">
-        <h3>✅ การออกกำลังกายที่เหมาะสม</h3>
-        <ul>
-          <li>🚶 เดินเร็ว 30 นาที/วัน อย่างน้อย 5 วัน/สัปดาห์</li>
-          <li>🚴 ปั่นจักรยาน / ว่ายน้ำ (กระแทกข้อน้อย)</li>
-          <li>🧘 โยคะ / ไทชิ (ดีสำหรับผู้สูงอายุ)</li>
-          <li>🏋️ ออกกำลังกายด้วยน้ำหนัก 2–3 วัน/สัปดาห์</li>
-          <li>💃 เต้นรำ / แอโรบิค</li>
-        </ul>
-      </div>
-      <div class="info-block" style="--accent:#f4a261">
-        <h3>⚠️ ข้อควรระวัง</h3>
-        <ul>
-          <li>ตรวจน้ำตาลก่อนออกกำลังกาย ถ้า &lt; 100 mg/dL ควรทานอาหารว่างก่อน</li>
-          <li>ถ้าน้ำตาล &gt; 250 mg/dL ควรงดออกกำลังกายก่อน</li>
-          <li>พกลูกอมหรือน้ำหวานติดตัวเสมอ (กรณีน้ำตาลต่ำ)</li>
-          <li>ดื่มน้ำเพียงพอ</li>
-          <li>สวมรองเท้าที่พอดีและระบายอากาศได้ดี</li>
-        </ul>
-      </div>
-      <div class="warning-box">
-        <p>⚠️ ผู้ที่มีภาวะแทรกซ้อน เช่น โรคหัวใจ จอประสาทตาเสื่อม หรือแผลที่เท้า ควรปรึกษาแพทย์ก่อนเริ่มออกกำลังกาย</p>
-      </div>
-      <div class="info-block" style="--accent:#6a0572">
-        <h3>📅 ตัวอย่างแผนออกกำลังกายรายสัปดาห์</h3>
-        <ul>
-          <li><strong>จ–พ–ส:</strong> เดินเร็ว 30 นาที</li>
-          <li><strong>อ–พฤ:</strong> ยืดเหยียด + ฝึกความแข็งแรง 20 นาที</li>
-          <li><strong>ศ:</strong> ว่ายน้ำหรือปั่นจักรยาน 45 นาที</li>
-          <li><strong>อา:</strong> พักหรือเดินเบาๆ</li>
-        </ul>
-      </div>
-    `
-  },
-
-  medicine: {
-    emoji: '💊',
-    title: 'ยาและการใช้ยา',
-    body: `
-      <div class="highlight-box">
-        <p>การใช้ยาอย่างถูกต้องมีความสำคัญมาก <strong>ห้ามหยุดยาหรือปรับขนาดยาเองโดยไม่ปรึกษาแพทย์</strong></p>
-      </div>
-      <div class="info-block" style="--accent:#457b9d">
-        <h3>💊 ยากินรักษาเบาหวาน (ชนิดที่ 2)</h3>
-        <ul>
-          <li><strong>เมตฟอร์มิน (Metformin):</strong> ยาหลักที่ใช้บ่อยที่สุด ควรทานพร้อมหรือหลังอาหาร</li>
-          <li><strong>กลุ่ม SGLT2 inhibitors:</strong> ช่วยขับน้ำตาลทางปัสสาวะ</li>
-          <li><strong>กลุ่ม GLP-1 agonists:</strong> ช่วยลดน้ำหนักด้วย</li>
-          <li><strong>กลุ่ม Sulfonylureas:</strong> กระตุ้นตับอ่อนสร้างอินซูลิน ระวังน้ำตาลต่ำ</li>
-        </ul>
-      </div>
-      <div class="info-block" style="--accent:#e63946">
-        <h3>💉 อินซูลิน</h3>
-        <ul>
-          <li>ใช้ในเบาหวานชนิดที่ 1 และชนิดที่ 2 ที่คุมน้ำตาลไม่ได้ด้วยยากิน</li>
-          <li>ฉีดใต้ผิวหนัง บริเวณท้อง ต้นขา หรือแขน</li>
-          <li>หมุนเวียนตำแหน่งฉีดเพื่อป้องกันไขมันกระจาย</li>
-          <li>เก็บในตู้เย็น (ไม่แช่แข็ง) หรือที่อุณหภูมิห้อง (หลังเปิดใช้)</li>
-        </ul>
-      </div>
-      <div class="info-block" style="--accent:#2a9d8f">
-        <h3>✅ หลักการทานยาที่ถูกต้อง</h3>
-        <ul>
-          <li>ทานยาตรงเวลาสม่ำเสมอ</li>
-          <li>ไม่ข้ามมื้อยา ถ้าลืมทานให้ทานทันทีที่นึกได้ (ยกเว้นใกล้มื้อถัดไป)</li>
-          <li>แจ้งแพทย์ทุกครั้งถ้ามีผลข้างเคียง</li>
-          <li>ไม่ซื้อยาทานเอง</li>
-          <li>นำยาทุกชนิดมาให้แพทย์ตรวจสอบเมื่อมาพบแพทย์</li>
-        </ul>
-      </div>
-      <div class="danger-box">
-        <p>🚨 <strong>อาการน้ำตาลต่ำจากยา:</strong> ใจสั่น เหงื่อออก หน้ามืด ตัวสั่น หิวมาก — ให้รีบดื่มน้ำหวาน 1/2 แก้ว หรือทานลูกอม 3–4 เม็ด แล้วรอ 15 นาที ถ้าอาการไม่ดีขึ้นให้รีบไปโรงพยาบาล</p>
-      </div>
-    `
-  },
-
-  complication: {
-    emoji: '⚠️',
-    title: 'ภาวะแทรกซ้อน',
-    body: `
-      <div class="highlight-box">
-        <p>เบาหวานที่ไม่ได้รับการควบคุมจะทำลายหลอดเลือดและเส้นประสาทอย่างช้าๆ ทั่วร่างกาย การรู้จักภาวะแทรกซ้อนช่วยให้<strong>ป้องกันได้ตั้งแต่ต้น</strong></p>
-      </div>
-      <div class="info-block" style="--accent:#e63946">
-        <h3>🫀 หัวใจและหลอดเลือด</h3>
-        <ul>
-          <li>โรคหัวใจ หลอดเลือดหัวใจตีบ</li>
-          <li>โรคหลอดเลือดสมอง (Stroke)</li>
-          <li>ความดันโลหิตสูง</li>
-        </ul>
-      </div>
-      <div class="info-block" style="--accent:#f4a261">
-        <h3>👁️ ตา (เบาหวานขึ้นตา)</h3>
-        <ul>
-          <li>หลอดเลือดในจอประสาทตาเสื่อม</li>
-          <li>ตาพร่ามัว มองไม่ชัด</li>
-          <li>อาจนำไปสู่ตาบอดถ้าไม่รักษา</li>
-          <li>ควรตรวจตาปีละ 1 ครั้ง</li>
-        </ul>
-      </div>
-      <div class="info-block" style="--accent:#6a0572">
-        <h3>🫘 ไต (ไตเสื่อม)</h3>
-        <ul>
-          <li>น้ำตาลทำลายหน่วยกรองของไตอย่างช้าๆ</li>
-          <li>ระยะแรกไม่มีอาการ ตรวจพบจากปัสสาวะและเลือด</li>
-          <li>อาจนำไปสู่ภาวะไตวายเรื้อรัง</li>
-        </ul>
-      </div>
-      <div class="info-block" style="--accent:#2d6a4f">
-        <h3>🦶 เท้าและระบบประสาท</h3>
-        <ul>
-          <li>ชาหรือเจ็บปวดที่เท้าและมือ</li>
-          <li>แผลที่เท้าหายช้า เสี่ยงการติดเชื้อ</li>
-          <li>ในรายรุนแรงอาจต้องตัดเท้า</li>
-        </ul>
-      </div>
-      <div class="warning-box">
-        <p>💡 <strong>การป้องกัน:</strong> คุมน้ำตาล ความดัน และไขมันให้อยู่ในเกณฑ์ ตรวจสุขภาพตามนัด งดสูบบุหรี่ และดูแลเท้าทุกวัน</p>
-      </div>
-    `
-  },
-
-  bloodsugar: {
-    emoji: '📊',
-    title: 'วิธีคุมระดับน้ำตาล',
-    body: `
-      <div class="highlight-box">
-        <p>เป้าหมายการรักษา: <strong>น้ำตาลอดอาหาร 80–130 mg/dL</strong> และ <strong>HbA1c &lt; 7%</strong> (อาจต่างกันในแต่ละบุคคล)</p>
-      </div>
-      <div class="info-block" style="--accent:#457b9d">
-        <h3>📏 การตรวจน้ำตาลที่บ้าน (SMBG)</h3>
-        <ul>
-          <li>ใช้เครื่องเจาะน้ำตาลปลายนิ้ว (Glucometer)</li>
-          <li>ตรวจก่อนอาหารเช้าและ 2 ชั่วโมงหลังอาหาร</li>
-          <li>บันทึกผลทุกครั้งเพื่อนำให้แพทย์ดู</li>
-          <li>ทำความสะอาดมือก่อนตรวจทุกครั้ง</li>
-        </ul>
-      </div>
-      <div class="info-block" style="--accent:#2a9d8f">
-        <h3>📌 ค่าเป้าหมายน้ำตาล</h3>
-        <ul>
-          <li><strong>อดอาหาร (Fasting):</strong> 80–130 mg/dL</li>
-          <li><strong>หลังอาหาร 2 ชั่วโมง:</strong> &lt; 180 mg/dL</li>
-          <li><strong>HbA1c:</strong> &lt; 7% (ตรวจทุก 3 เดือน)</li>
-          <li><strong>ก่อนนอน:</strong> 100–140 mg/dL</li>
-        </ul>
-      </div>
-      <div class="info-block" style="--accent:#e63946">
-        <h3>🚨 น้ำตาลต่ำ (&lt;70 mg/dL)</h3>
-        <ul>
-          <li>อาการ: ใจสั่น เหงื่อออก หน้ามืด ตัวสั่น</li>
-          <li>รีบดื่มน้ำหวาน หรือทานลูกอม 3–4 เม็ด</li>
-          <li>รอ 15 นาที ตรวจซ้ำ ถ้ายังต่ำให้ทำซ้ำ</li>
-        </ul>
-      </div>
-      <div class="info-block" style="--accent:#f4a261">
-        <h3>🔺 น้ำตาลสูง (&gt;250 mg/dL)</h3>
-        <ul>
-          <li>อาการ: กระหายมาก ปัสสาวะบ่อย คลื่นไส้</li>
-          <li>ดื่มน้ำเปล่ามากๆ</li>
-          <li>งดออกกำลังกาย</li>
-          <li>ถ้าสูงมากหรือมีอาการมาก ให้รีบไปโรงพยาบาล</li>
-        </ul>
-      </div>
-      <div class="info-block" style="--accent:#6a0572">
-        <h3>📱 เทคโนโลยีช่วยติดตาม</h3>
-        <ul>
-          <li>CGM (Continuous Glucose Monitor) วัดน้ำตาลต่อเนื่อง 24 ชม.</li>
-          <li>แอปพลิเคชันบันทึกอาหาร เช่น MyFitnessPal</li>
-          <li>สมุดบันทึกน้ำตาลดิจิทัล</li>
-        </ul>
-      </div>
-    `
-  },
-
-  foot: {
-    emoji: '👣',
-    title: 'การดูแลเท้า',
-    body: `
-      <div class="highlight-box">
-        <p>ผู้ป่วยเบาหวานมีความเสี่ยงสูงต่อ<strong>แผลที่เท้าและการติดเชื้อ</strong> เนื่องจากการไหลเวียนเลือดและความรู้สึกที่ลดลง การดูแลเท้าทุกวันจึงสำคัญมาก</p>
-      </div>
-      <div class="info-block" style="--accent:#2d6a4f">
-        <h3>✅ การดูแลเท้าทุกวัน</h3>
-        <ul>
-          <li>ตรวจเท้าทุกวัน รวมถึงง่ามนิ้วและฝ่าเท้า</li>
-          <li>ล้างเท้าด้วยน้ำอุ่น (ไม่ร้อน) และสบู่อ่อน</li>
-          <li>เช็ดให้แห้งโดยเฉพาะง่ามนิ้ว</li>
-          <li>ทาโลชั่นบำรุงเท้า แต่ไม่ใส่ง่ามนิ้ว</li>
-          <li>ตัดเล็บตรงๆ ไม่ตัดสั้นเกินไป</li>
-        </ul>
-      </div>
-      <div class="info-block" style="--accent:#457b9d">
-        <h3>👟 การเลือกรองเท้า</h3>
-        <ul>
-          <li>เลือกรองเท้าที่พอดี ไม่คับหรือหลวม</li>
-          <li>มีหัวกว้าง หนังนุ่ม</li>
-          <li>ไม่ใส่รองเท้าส้นสูง</li>
-          <li>ใส่ถุงเท้าสะอาดทุกวัน</li>
-          <li><strong>ไม่เดินเท้าเปล่า</strong> แม้แต่ในบ้าน</li>
-        </ul>
-      </div>
-      <div class="danger-box">
-        <p>🚨 <strong>สัญญาณที่ต้องรีบพบแพทย์:</strong> บาดแผล รอยแดง บวม ร้อน มีหนอง แผลเปิด เล็บขบ หรือเล็บเป็นเชื้อรา — อย่ารักษาเองเด็ดขาด</p>
-      </div>
-      <div class="info-block" style="--accent:#e63946">
-        <h3>❌ สิ่งที่ห้ามทำ</h3>
-        <ul>
-          <li>ห้ามแช่เท้าในน้ำร้อน</li>
-          <li>ห้ามใช้กรรไกรหรือมีดตัดหนังด้วยตัวเอง</li>
-          <li>ห้ามใช้ยาตัดหนังหรือพลาสเตอร์กัดกร่อน</li>
-          <li>ห้ามใส่รองเท้าแตะโดยไม่มีถุงเท้าออกนอกบ้าน</li>
-        </ul>
-      </div>
-    `
-  },
-
-  qa: {
-    emoji: '🧠',
-    title: 'Q&A คำถามที่พบบ่อย',
-    body: `
-      <div class="info-block" style="--accent:#e63946">
-        <h3>❓ ถ้าน้ำตาลปกติแล้ว หยุดยาได้ไหม?</h3>
-        <p>ไม่ควรหยุดยาเองเด็ดขาด น้ำตาลปกติเพราะยากำลังทำงาน การหยุดยาเองอาจทำให้น้ำตาลกลับสูงอีก ควรปรึกษาแพทย์เสมอ</p>
-      </div>
-      <div class="info-block" style="--accent:#2a9d8f">
-        <h3>❓ กินหวานได้ไหมถ้าเป็นเบาหวาน?</h3>
-        <p>ได้ แต่ต้องจำกัดปริมาณ เน้นผลไม้รสไม่หวานและหลีกเลี่ยงน้ำตาลเชิงเดี่ยว เช่น น้ำหวาน ขนมหวาน เป็นต้น</p>
-      </div>
-      <div class="info-block" style="--accent:#f4a261">
-        <h3>❓ เบาหวานหายขาดได้ไหม?</h3>
-        <p>เบาหวานชนิดที่ 2 บางรายที่ลดน้ำหนักได้มากพอสามารถเข้าสู่ภาวะ "สงบ" (remission) ได้ แต่ยังต้องดูแลสุขภาพอย่างต่อเนื่อง</p>
-      </div>
-      <div class="info-block" style="--accent:#6a0572">
-        <h3>❓ ผ่าตัดหรือทำหัตถการต้องบอกหมอว่าเป็นเบาหวานไหม?</h3>
-        <p>ต้องบอกทุกครั้ง เพราะเบาหวานและยาที่ใช้อาจส่งผลต่อการผ่าตัด การดมยา และการหายของแผล</p>
-      </div>
-      <div class="info-block" style="--accent:#457b9d">
-        <h3>❓ เบาหวานถ่ายทอดทางพันธุกรรมไหม?</h3>
-        <p>มีส่วน โดยเฉพาะชนิดที่ 2 ถ้าพ่อแม่หรือพี่น้องเป็นเบาหวาน ความเสี่ยงสูงขึ้น แต่การปรับพฤติกรรมช่วยลดความเสี่ยงได้มาก</p>
-      </div>
-      <div class="info-block" style="--accent:#2d6a4f">
-        <h3>❓ ดื่มแอลกอฮอล์ได้ไหม?</h3>
-        <p>ควรหลีกเลี่ยง แอลกอฮอล์รบกวนการทำงานของยาและทำให้น้ำตาลต่ำหรือสูงผิดปกติได้ ถ้าดื่มควรดื่มน้อยมากพร้อมอาหาร</p>
-      </div>
-      <div class="info-block" style="--accent:#e9c46a" style="--accent:#c77dff">
-        <h3>❓ ตรวจ HbA1c ทุกนานแค่ไหน?</h3>
-        <p>ถ้าน้ำตาลควบคุมได้ดี ตรวจทุก 6 เดือน ถ้ายังไม่คงที่หรือเพิ่งเริ่มการรักษา ควรตรวจทุก 3 เดือน</p>
-      </div>
-    `
+function onPlayerStateChange(event) {
+  if (event.data === YT.PlayerState.PLAYING) {
+    players.forEach(player => {
+      if (player !== event.target) {
+        player.pauseVideo();
+      }
+    });
   }
-
-};
-
-function openModal(key) {
-  const d = content[key];
-  if (!d) return;
-  document.getElementById('modal-emoji').textContent = d.emoji;
-  document.getElementById('modal-title').textContent = d.title;
-  document.getElementById('modal-body').innerHTML = d.body;
-  document.getElementById('overlay').classList.add('active');
-  document.body.style.overflow = 'hidden';
-  document.getElementById('modal').scrollTop = 0;
 }
-
-function closeModal() {
-  document.getElementById('overlay').classList.remove('active');
-  document.body.style.overflow = '';
+  
+function stopAllVideos() {
+  document.querySelectorAll("iframe").forEach(video => {
+    let src = video.src;
+    video.src = src; // รีโหลด iframe = หยุดวิดีโอ
+  });
 }
-
-function closeOnBg(e) {
-  if (e.target === document.getElementById('overlay')) closeModal();
+  
+function openPage(id)
+  { 
+ stopAllVideos();
+   document.getElementById("home").style.display="none";
+  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
 }
+  
+function goHome(){
+stopAllVideos();
+ document.getElementById("home").style.display="block";
+  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+}
+  
+function toggleFAQ(el) {
+  let answer = el.nextElementSibling;
 
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-</script>
-</body>
-</html>
+  if (answer.style.maxHeight) {
+    answer.style.maxHeight = null;
+    answer.style.padding = "0 18px";
+  } else {
+    answer.style.maxHeight = answer.scrollHeight + "px";
+    answer.style.padding = "18px";
+  }
+}    
+  </script>
+      
+     
